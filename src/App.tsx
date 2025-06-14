@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes/route";
 import React from "react";
 import { ToastContainer } from "react-toastify";
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 
 export default function App() {
   return (
@@ -16,11 +17,11 @@ export default function App() {
               key={index}
               path={route.path}
               element={
-                Component ? (
-                  <Layout>
-                    <Component />
-                  </Layout>
-                ) : null
+                <ProtectedRoute roles={route.roles || []}>
+                  {Component ? (
+                      <Component />
+                  ) : null}
+                </ProtectedRoute>
               }
             />
           );

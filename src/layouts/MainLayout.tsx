@@ -16,7 +16,13 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  
 
+  console.log("layout render");
+  useEffect(()=>{
+    console.log("mount layout");
+    
+  },[])
   return (
     <Layout>
       <Header style={{ display: "flex", alignItems: "center" }}>

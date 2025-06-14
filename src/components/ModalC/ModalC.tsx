@@ -42,15 +42,19 @@ const ModalC: React.FC<ModalCProps> = ({
       <div className="inline" onClick={showModal}>
         {button}
       </div>
-      <Modal
-        width={width}
-        onCancel={handleCancel}
-        title={title}
-        open={isModalOpen}
-        footer={false}
-      >
-        {children(actions)}
-      </Modal>
+        {
+          isModalOpen && (
+            <Modal
+            width={width}
+            onCancel={handleCancel}
+            title={title}
+            open={true}
+            footer={false}
+          >
+            {children(actions)}
+          </Modal>
+          )
+        }
     </>
   );
 };

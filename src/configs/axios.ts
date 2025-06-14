@@ -8,7 +8,7 @@ const getTokenAuthHeader = (token: string) => `Bearer ${token}`;
 function createInstance(API: string, timeout?: number) {
   axios.defaults.withCredentials = true;
   const serverInstance = axios.create({
-    baseURL: API,
+    baseURL: "https://jsonplaceholder.typicode.com",
     headers: { "Content-Type": "application/json" },
   });
 

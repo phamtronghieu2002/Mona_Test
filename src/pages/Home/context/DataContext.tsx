@@ -1,3 +1,4 @@
+import Home from "@/pages/Home/Home";
 import React, { FC, useEffect, useState } from "react";
 
 export interface Icontext {
@@ -18,10 +19,9 @@ interface Iaction {
 
 export const myContext = React.createContext<Icontext | null>(null);
 interface AuthProviderProps {
-  children: React.ReactNode;
 }
 
-const DataProvider: FC<AuthProviderProps> = ({ children }) => {
+const DataProvider: FC<AuthProviderProps> = () => {
   const [data, setData] = useState<Istate>({
     reloadkey: 0,
     q: "",
@@ -31,10 +31,6 @@ const DataProvider: FC<AuthProviderProps> = ({ children }) => {
 
   const fechData = () => {
 
-console.log("query", data?.q);
-console.log("page", data?.page);
-console.log('====================================');
-console.log("reloadkey", data?.reloadkey);
 
   };
   useEffect(() => {
@@ -58,7 +54,7 @@ console.log("reloadkey", data?.reloadkey);
   };
 
   return (
-    <myContext.Provider value={{ dispatch ,state:data}}>{children}</myContext.Provider>
+    <myContext.Provider value={{ dispatch ,state:data}}>  <Home /></myContext.Provider>
   );
 };
 

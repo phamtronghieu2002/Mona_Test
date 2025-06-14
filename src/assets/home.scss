@@ -1,0 +1,12 @@
+@use "./responsive.scss" as *;
+.title {
+  color: blue;
+  
+  @include respond(sm) {
+    color: yellow;
+  }
+  @include respond(md) {
+    color: red;
+  }
+
+}
